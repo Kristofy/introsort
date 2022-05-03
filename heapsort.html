@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./src/css/custom_styles.css">
+    <link rel="stylesheet" media="screen" href="./src/css/custom_styles.css">
+    <link rel="stylesheet" media="print" href="./src/css/print.css">
     <script defer src="./src/js/bootstrap.bundle.min.js"></script>
     <script defer src="./src/js/app.js"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <title>IntroSort</title>
+    <title>Kupacrendezés - Introsort</title>
 </head>
 
 <body>
@@ -33,7 +34,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">IntroSort</a>
+                            <a class="nav-link" href="index.html">IntroSort</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="quicksort.html">QuickSort</a>
@@ -49,11 +50,7 @@
                         </li>
                     </ul>
                     <a target="_blank" href="https://github.com/Kristofy/introsort">
-                        <svg id="github-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
-                            <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-                            <path
-                                d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
-                        </svg>
+                        <i class="fa-brands fa-github"></i>
                     </a>
                 </div>
             </div>
@@ -64,8 +61,9 @@
         <div class="row">
             <div class="col-12 col-xl-2">
                 <aside class="sticky-xl-top">
-                    <article id="table-of-content" class="bg-light my-3 p-2 pe-4 border d-inline-block w-auto">
-                        <h2>Tartalom</h2>
+                    <nav id="table-of-content">
+                        <div class="bg-light my-3 p-2 pe-4 border d-inline-block w-auto">
+                        <h1>Tartalom</h1>
                         <ul>
                             <li>
                                 <a class="link-secondary" href="#intro" data-id="intro">Előszó</a>
@@ -83,9 +81,6 @@
                                                 <a class="link-secondary" href="#make_heap" data-id="make_heap">Létrehoz</a>
                                             </li>
                                             <li>
-                                                <a class="link-secondary" href="#push_heap" data-id="push_heap">Beilleszt</a>
-                                            </li>
-                                            <li>
                                                 <a class="link-secondary" href="#pop_heap" data-id="pop_heap">Kivesz</a>
                                             </li>
                                         </ul>
@@ -99,36 +94,34 @@
                                 <a class="link-secondary" href="#implementation" data-id="implementation">Implementáció C++</a>
                             </li>
                         </ul>
-                    </article>
+                    </div>
+                    </nav>
                 </aside>
             </div>
             <div class="col-12 col-xl-10">
                 <div class="me-4">
                     <article id="intro">
-                        <h2>Előszó</h2>
+                        <h1>Előszó</h1>
                         <p>A kupacrendezés nagyon hasonló egy maximum kiválasztásos rendezéssel. De ebben az esetben a maximum kiválasztáshoz fenntartunk egy kupac struktúrát és annak segítségével keressük a maximumot.</p>
                     </article>
                     <article id="algo">
-                        <h2>Algoritmus</h2>
+                        <h1>Algoritmus</h1>
                         <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Heapsort-example.gif" alt="A kupacrendezés animálva">
                         <p>Kupac struktúra egy bináris fa egy plusz tulajdonsággal, a szülő elem mindig nagyobb, mint a gyerek elem, ennek figyelembe vételével építjük fel a kupacot, majd tartjuk fent. A bináris fa szerkezetet egy sorozattal modellezük, mert sokkal effektívebb mint egy fát elemenként felépíteni. A k elem bal oldali gyereke a k * 2 . elem a jobb oldali gyereke pedig a k * 2 + 1 . elem</p>
                         <p>A kupacból a legnagyobb elemet újra és újra kivesszük egy speciális művelettel és a kupac végére tesszük, majd a kupac mérete az egy áltávolított elem miatt csökken egyel, ezt ismételve hátulról rendezzük a sorozatot.</p>
-                        <h3 id="heap">Kupac adatszerkezet</h3>
-                        <p>Leírás</p>
+                        <h2 id="heap">Kupac adatszerkezet</h2>
+                        <p>Az adatszerkezet metódusai</p>
                         <ul>
                             <li>
-                                <h3 id="heapify">Kupacol</h3>
+                                <h2 id="heapify">Kupacol</h2>
                                 <p>Általában annak az eljárásnak a neve ami fent tartja a kupac szerkezetet. A feladata ellenőrizni hogy a szülő elem nagyobb e mint mindkét gyerek elem, ha nem akkor kicseréli a nagyobb gyerekkel. Majd azon a pozíción rekurzívan meghívja saját magát, így végül a kis elemet addig viszi lejjebb ameddig nem lesz rá igaz a kupac felétele</p>
                             </li>
                             <li>
-                                <h3 id="make_heap">Kupac létrehozása</h3>
+                                <h2 id="make_heap">Kupac létrehozása</h2>
                                 <p>A kupac felépíttéséhez a heapify eljárást használjuk, viszont annak elő feltétele hogy csak egy elem (amire meghívjuk a heapify eljárást) lehet rossz helyen, ezért alulról felfelé minden elemre meghívjuk a heapify eljárást, a sorozatos modellezés alapján n/2 - 1 tő 0 ig</p>
                             </li>
                             <li>
-                                <h3 id="push_heap">Elem hozzáadása</h3>
-                            </li>
-                            <li>
-                                <h3 id="pop_heap">Elem kivétele</h3>
+                                <h2 id="pop_heap">Elem kivétele</h2>
                                 <p>A legfelső elem a kupacban mindig a maximális, ilyenkor a legfelső elemet lecseréljük a legutolsóval és a kupac mérete egyel csökken (a valóságban az utolsó elem a sorozat végére kerül, de már nem jelöljük meg a kupac részének). A legfelső rossz helyen lévő elemet pedig a heapify eljárással a helyére visszük</p>
                             </li>
                         </ul>
@@ -160,14 +153,14 @@ Function heapify(arr: Array, size: Integer, elem: Integer):
 </code></pre>
                     </article>
                     <article id="complexity">
-                        <h2>Hatékonyság</h2>
+                        <h1>Hatékonyság</h1>
                         <p>A kupacrendezés habár a gyorsabb rendezések közé tartozik, azok között viszont lassú, főként azért, mert a kupac szerkezet fenntartása miatt sok plusz műveletet kell végeznünk.</p>
                         <p>A kupacrendezés mindig n log n futási idejű hiszen a bemutatott kupac építés n szer ismétli a heapify eljárást, ami log n futási idejű, valamint a rendezés ismét n szer ismétli a heapify eljárást,</p>
                         <p>A heapify eljárás log n futási idejű, hiszen minden elem után rekurzívan meghívja magát az elem 2 szeresével (vagy kétszeres + 1 el) így legkésőbb log2 n lépés után a kupac végére érünk.</p>
 
                     </article>
                     <article id="implementation">
-                        <h2>Implementáció C++</h2>
+                        <h1>Implementáció C++</h1>
                         <pre>
                             <code class="cpp">
 <span class="Type">void</span> heapify(<span class="Type">int</span> arr[], <span class="Type">int</span> n, <span class="Type">int</span> i)
@@ -214,6 +207,41 @@ Function heapify(arr: Array, size: Integer, elem: Integer):
             </div>
         </div>
     </main>
+    
+<div class="container">
+    <footer class="py-3">
+      <div class="row border-top pt-2">
+        <div class="col-12 col-md-3 mb-2">
+          <h4>Navigáció</h4>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a lang="en" href="./index.html" class="nav-link p-0 text-muted">Introsort</a></li>
+            <li class="nav-item mb-2"><a lang="en" href="./quicksort.html" class="nav-link p-0 text-muted">Quicksort</a></li>
+            <li class="nav-item mb-2"><a lang="en" href="./heapsort.html" class="nav-link p-0 text-muted">Heapsort</a></li>
+            <li class="nav-item mb-2"><a lang="en" href="./insertionsort.html" class="nav-link p-0 text-muted">Insertionsort</a></li>
+            <li class="nav-item mb-2"><a href="./about.html" class="nav-link p-0 text-muted">Elérhetőségek</a></li>
+          </ul>
+        </div>
+  
+        <div class="col-12 col-md-6 mb-2">
+          <h4>Elérhetőségek</h4>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a class="nav-link p-0 text-muted" href="tel:+36202547144" title="tel:+36 20 254 7144"><i class="fas fa-phone fa-fw"></i>+36 20 254 7144</a></li>
+            <li class="nav-item mb-2"><a class="nav-link p-0 text-muted" href="mailto:kristofosztopani@gmail.com" title="kristofosztopani@gmail.com"><i class="fas fa-fw fa-envelope"></i>kristofosztopani@gmail.com</a></li>
+          </ul>
+        </div>
+  
+        <div class="col-12 col-md-3 mb-2">
+          <h4>Project</h4>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="https://github.com/Kristofy/introsort" class="nav-link p-0 text-muted"><i class="fa-brands fa-github"></i> Weboldal</a></li>
+            <li class="nav-item mb-2"><a href="https://github.com/Kristofy/Sorting-benchmark" class="nav-link p-0 text-muted"><i class="fa-brands fa-github"></i> Mérések</a></li>
+          </ul>
+        </div>
+    </div>
+
+    </footer>
+  </div>
+
 </body>
 
 </html>

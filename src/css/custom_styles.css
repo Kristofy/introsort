@@ -1,3 +1,4 @@
+@import url('./font-awesome.css');
 @import url('./bootstrap.css');
 
 #home-logo {
@@ -14,8 +15,34 @@
     width: auto;
 }
 
-#profile_picture {
+#profile-picture {
     max-height: 400px;
+}
+
+#about-section {
+    position: relative;
+    background: transparent;
+}
+
+#about-section::before {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-image: url('../../assets/background-image.jpg');
+    /* not supported in microsoft explorer */
+    mask-image: radial-gradient(ellipse closest-side at center, #ffffffff 40%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse closest-side at center, #ffffffff 40%, transparent 80%);
+    -o-mask-image: radial-gradient(ellipse closest-side at center, #ffffffff 40%, transparent 80%);
+    -moz-mask-image: radial-gradient(ellipse closest-side at center, #ffffffff 40%, transparent 80%);
+}
+
+main a:visited {
+    color: var(--bs-secondary);
 }
 
 p {

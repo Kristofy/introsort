@@ -1,0 +1,61 @@
+nav, video, #real-time, footer, #form-container {
+    display: none;
+}
+
+a, a:link, a:visited {
+    color: black;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 1cm;
+    float: left;
+}
+
+tr{
+    width: auto;
+}
+
+
+th, td {
+    border: 1px solid black;
+    width: auto;
+}
+
+table caption {
+    display: none;
+}
+
+section{
+    page-break-inside: avoid;
+}
+
+h2{
+    page-break-inside: avoid;
+}
+
+h2::after
+{
+    height: 6rem; 
+    margin-bottom: -6rem;
+    display: block;
+    content: "";
+}
+
+
+img[src$='.gif'] {
+    display: none;
+}
+
+img {
+    width: 75%;
+    height: auto;
+    display: block;
+}
+
+#profile-picture {
+    height: 8cm;
+    width: auto;
+    float: right;
+    margin-left: 2cm;
+}
