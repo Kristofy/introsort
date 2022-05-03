@@ -1,0 +1,89 @@
+@import url('./bootstrap.css');
+
+#home-logo {
+    height: 24px;
+    width: auto;
+}
+
+#complexity-comparison {
+    min-width: 50%;
+}
+
+#github-logo {
+    height: 24px;
+    width: auto;
+}
+
+#profile_picture {
+    max-height: 400px;
+}
+
+p {
+    text-align: justify;
+}
+
+h2{
+    color: var(--bs-primary);
+}
+
+h3{
+    color: var(--bs-secondary);
+}
+
+main aside a {
+    text-decoration: none;
+    color: var(--bs-dark);
+}
+
+form textarea#message {
+    resize: none;
+    min-height: 200px;
+}
+
+form div.form-floating {
+    min-height: 200px;
+}
+
+code.cpp * {
+    font-size: 1em;
+}
+
+code.cpp {
+    font-family: monospace;
+    color: #000000;
+    background-color: #ffffff;
+}
+
+code.cpp pre {
+    white-space: pre-wrap;
+    font-family: var(--bs-font-monospace);
+    color: #000000;
+    background-color: #ffffff;
+}
+
+code.cpp .PreProc {
+    color: #c000c0;
+}
+
+code.cpp .Type {
+    color: #008000;
+}
+
+code.cpp .Constant {
+    color: #c00000;
+}
+
+code.cpp .Statement {
+    color: #af5f00;
+}
+
+code.cpp .Comment {
+    color: #454036;
+}
+
+code.cpp pre { white-space: pre-wrap; font-family: monospace; color: #000; background-color: #fff; }
+
+
+.lh-xl{
+    line-height: 2.5em;
+}

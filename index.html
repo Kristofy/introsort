@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/css/custom_styles.css">
+    <script defer src="./src/js/bootstrap.bundle.min.js"></script>
+    <script defer src="./src/js/app.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>IntroSort</title>
+</head>
+
+<body>
+    <nav class="visually-hidden-focusable">
+        <a href="#main">Ugrás a tartalomra</a>
+    </nav>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img class="d-inline-block align-text-top" src="./assets/sorting-icon.png" alt="Főoldal icon"
+                        id="home-logo">
+                    IntroSort
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">IntroSort</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="quicksort.html">QuickSort</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="heapsort.html">HeapSort</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="insertionsort.html">InsertionSort</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">Elérhetőségek</a>
+                        </li>
+                    </ul>
+                    <a target="_blank" href="https://github.com/Kristofy/introsort">
+                        <svg id="github-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                            <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path
+                                d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main" class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-xl-2">
+                <aside class="sticky-xl-top">
+                    <article id="table-of-content" class="bg-light my-3 p-2 pe-4 border d-inline-block w-auto">
+                        <h2>Tartalom</h2>
+                        <ul>
+                            <li>
+                                <a class="link-secondary" href="#intro" data-id="intro">Előszó</a>
+                            </li>
+                            <li>
+                                <a class="link-secondary" href="#algo" data-id="algo">Algoritmus</a>
+                            </li>
+                            <li>
+                                <a class="link-secondary" href="#complexity" data-id="complexity">Hatékonyság</a>
+                            </li>
+                            <li>
+                                <a class="link-secondary" href="#comparison" data-id="comparison">Összehasonlítás</a>
+                                <ul>
+                                    <li>
+                                        <a class="link-secondary" href="#sorted" data-id="sorted">Rendezett</a>
+                                    </li>
+                                    <li>
+                                        <a class="link-secondary" href="#almost-sorted" data-id="almost-sorted">Majdnem rendezett</a>
+                                    </li>
+                                    <li>
+                                        <a class="link-secondary" href="#rotated" data-id="rotated">Forgatott</a>
+                                    </li>
+                                    <li>
+                                        <a class="link-secondary" href="#random" data-id="random">Véletlenszerű</a>
+                                    </li>
+                                    <li>
+                                        <a class="link-secondary" href="#conculsion" data-id="conculsion">Konklúzió</a>
+                                    </li>
+                                    <li>
+                                        <a class="link-secondary" href="#real-time" data-id="real-time">„Valós időben”</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="link-secondary" href="#implementation" data-id="implementation">Implementáció C++</a>
+                            </li>
+                        </ul>
+                    </article>
+                </aside>
+            </div>
+            <div class="col-12 col-xl-10">
+                <div class="me-4">
+                    <article id="intro">
+                        <h2>Előszó</h2>
+                        <p>
+                            A gyakorlatban egy nagyon gyors <strong><em>hibrid</em></strong> rendezési algoritmus. Ez a
+                            hibrid rendezés a a gyorsrendezés(<em><span lang="en"><a target="_blank"
+                                        href="./quicksort.html">quicksort</a></span></em>), kupacrendezés(<em><span
+                                    lang="en"><a target="_blank" href="./heapsort.html">heapsort</a></span></em>) és a
+                            beilleszéses
+                            rendezés(<em><span lang="en"><a href="./insertionsort.html" target="_blank">insertion
+                                        sort</a></span></em>) algoritumusokból áll. Többek között a c++ standard
+                            könyvtárakban ezt az algoritmust valósítják meg.
+                            Ez a rendezés <strong><em>nem stabil</em></strong>, azaz az azonos elemek
+                            sorrendje
+                            változhat a rendezés alatt.
+                            Ezt az <span lang="en"><a target="_blank"
+                                    href="https://en.cppreference.com/w/cpp/algorithm/sort">std::sort</a></span> néven lehet
+                            elérni.
+                        </p>
+                        <p>
+                            Az egyik leggyorsabb stabil rendezési
+                            algoritmus a <em><span lang="en">TimSort</span></em>, amely a <em><span
+                                    lang="en">mergesort</span></em> és <em><span lang="en">insertion sort</span></em>
+                            algoritmusok kompozíciójával állítható elő, amelyek önállóan is <em>stabil</em> rendezések.
+                            A c++ standard implementációkban tipikusan ez az algoritmus található meg a <span lang="en"><a
+                                    target="_blank"
+                                    href="https://en.cppreference.com/w/cpp/algorithm/stable_sort">std::stable_sort</a></span>
+                            néven.
+                        </p>
+                    </article>
+                    <article id="algo">
+                        <h2>Algoritmus</h2>
+                        <p>A rendezés alapja a gyorsrendezés, de annak legrosszabb esetének elkerülése érdekében ha a gyors
+                            rendezés
+                            <strong>túl mélyre</strong> megy, akkor a rendezés <strong>kupacrendezés</strong>re vált. A
+                            maximális mélységet tipikusan a bemenet hosszának logaritmusának függvényében határozzák meg.
+                            A rövid sorozatokat viszont általában nem éri meg
+                            rekurzív rendezésekkel rendezni, ezért egy bizonyos metaparaméternél
+                            <strong>rövidebb</strong>
+                            részeket <strong>beillesztéses rendezéssel</strong> rendezzük.
+                        </p>
+                        <p>
+                            A röveidebb részeken komplex rendezési algoritmusok tipikusan lassabbak, ennek okai főként a
+                            következők:
+                        </p>
+                        <ul>
+                            <li>
+                                A <em><a href="https://en.wikipedia.org/wiki/Branch_predictor" target="_blank"><span
+                                            lang="en">Branch Predictor</span></a></em> nem
+                                képes
+                                minden esetben helyesen megjósolni a végrehajtási utat, ha az algoritmus bonyolult, ezek a
+                                rosszul megjósolt végrahajtási utakhoz érve a számítógépnek újra kell kezdenie az információ
+                                lekérését, így nem képes kihasználni a processzor párhuzamosságát(megj: Egy processzor mag
+                                is képes több dolgot csinálni egyszerre, páldául adatokat betölteni és számíttásokat
+                                végezni.) egyszerűbb
+                                algoritmusok esetén a <span lang="en">branch predictor</span>-nak sokkal könnyebb dolga van.
+                            </li>
+                            <li>
+                                Döntő tényező lehet
+                                <strong><em><span lang="en">cachemiss</span></em></strong>-ek száma, ami akkor lép fel ha
+                                olyan memóriaterületet próbálunk elérni amely nincs a
+                                gyorsíttótárban,
+                                ekkor a processzornak nagyságrendekkel többet kell várnia az adat betöltésére mintha a
+                                gyorsítótárból
+                                olvasta volna be. Az egyszerűbb algoritmusok tipikusan egymás melletti mermória területeket
+                                próbálnak elérni, így sokkal kissebb az esélye hogy a kért adat nincs bent a gyorsítótárban
+                            </li>
+                        </ul>
+                        <p>Az összeépített algoritmusban egy gyorsabb beillesztéses rendezést és tipikusan a Median of 3 (
+                            link a
+                            quicsort oldalra median of 3 címhez) pivot választással implementált gyorsrendezést használják.
+                        </p>
+                    <pre class="bg-light px-3 pb-3"><code>
+Function sort(Arr: array):None
+    introsort(arr, 0, length(array)-1, 2*floor(log2(length(array))))
+    
+Function introsort(arr: array, lo: integer, hi: integer, maxdepth: integer):None
+    if hi - lo  + 1 &lt; TRASHOLD:
+        InsertionSort(arr, lo, hi)
+        return
+
+    if maxdepth = 0:
+        heapsort(arr, lo, hi)
+        return
+
+    pivot:Integer = ChoosePivot(arr, lo, hi)
+    partitionPoint:Integer = partition(arr, lo, hi, pivot)
+
+    introsort(arr, lo, partitionPoint - 1, maxdepth - 1)
+    introsort(arr, partitionPoint + 1, hi, maxdepth - 1)
+    return
+                </code></pre>
+                        <p>
+                            Itt <span lang="en">TRASHOLD</span> egy metaparaméter optimális választás körülbellül 16,
+                            viszont ez nagy mértékben függ a rendezett típustól, ha a típus mozgatása lassú akkor a <span
+                                lang="en">TRASHOLD</span> értéke kisebb. Ezt az optimalizációt a <cite><abbr lang="en"
+                                    title="GNU Compiler Collection">GCC</abbr></cite> fordító nem, de a <cite>clang</cite>
+                            fordító alkalmazza.
+                        </p>
+                        <p>
+                            \(2 \left \lfloor \log_2 \left | \text{array} \right | \right \rfloor \) A következő kifejezés
+                            is átállítható a maximális hatékonyság érdekében, de a sorozat hosszának logaritmusával arányos
+                            választás javasolt.
+                        </p>
+                    </article>
+                    <article id="complexity">
+                        <h2>Hatékonyság</h2>
+                        <p> Az algoritmus várható futási ideje n log n. Ez <span lang="en">quicksort</span>
+                            várható futási ideje is.
+                            Az insertion sort minden kisebb részen csak egyszer fut le, így lineáris időt vesz igénybe a
+                            beillesztéses rendezés, így a teljes algoritmus n log n várható futási idejű.</p>
+                        <p>Legrosszabb eset amikor a gyorsrendezés négyzetes futási idejű, ilyenkor viszont a maximális
+                            mélység elérése után az algoritmus kupacrendezésre vált, amely k log  k idő alatt
+                            rendezi a k hosszú résztömböt, így <br>
+                            maximális mélység * k + k log  k = k*(maximális mélység + log  k)
+                            \(\approx\) k log  k időt vesz igénybe maximális mélység + k elem rendezése . Így a
+                            legrosszabb esetben is n log2 n időben rendezhető a teljes tömb.</p>
+                        <p>Azért nem használunk <span lang="en"><b>heapsortot</b></span> minden esetben, mert a <b>kupac
+                                struktúra</b> fenttartához rendezés alatt
+                            <b>sok cserére van szükség</b>. Így a gyakorlatban a gyors rendezés véletlenszerű adatok
+                            esetén
+                            gyorsabb a kupacrendezésnél.
+                        </p>
+                    </article>
+                    <article id="comparison">
+                        <h2>Összehasonlítás</h2>
+                        <div class="clearfix">
+                            <div class="d-inline-block float-md-start me-md-3">
+                                <table id="complexity-comparison"
+                                    class="table table-striped border rounded text-center w-100 p-2 caption-top">
+                                    <caption>
+                                        <strong>Komplexitások</strong>
+                                        <details>
+                                            <summary>Összefoglaló</summary>
+                                            <p>Az <span lang="en">intro</span>, <span lang="en">merge</span> és <span
+                                                    lang="en">heapsort</span> algoritmusok futási ideje optimális, a <span
+                                                    lang="en">quicksort</span> tér el ettől a legrosszabb esetében, ahol
+                                                jelentőssen lassabb</p>
+                                        </details>
+                                    </caption>
+                                    <tr>
+                                        <th scope="col" class="text-start">Rendezés</th>
+                                        <th scope="col">Legjobb</th>
+                                        <th scope="col">Várható</th>
+                                        <th scope="col">Legrosszab</th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="text-start">Intro</th>
+                                        <td>n log n</td>
+                                        <td>n log n</td>
+                                        <td>n log n</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="text-start">Quick <abbr lang="en"
+                                                title="Median of Three">med3</abbr></th>
+                                        <td>n log n</td>
+                                        <td>n log n</td>
+                                        <td>n<sup>2</sup></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="text-start">Merge</th>
+                                        <td>n log n</td>
+                                        <td>n log n</td>
+                                        <td>n log n</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="text-start">Heapsort</th>
+                                        <td>n log n</td>
+                                        <td>n log n</td>
+                                        <td>n log n</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div>
+                                <p>Az összehasonlíttásban 3 másik híres logaritmikus faktorral rendelkező rendezéssel
+                                    hasonlítjuk
+                                    össze.</p>
+                                <p>Az összefésüléses rendezés egy stabil rendezés n log2 n futási idővel, de az
+                                    összefésüléshez
+                                    tipikusan
+                                    lineáris addicionális tárhelyre van szüksége.</p>
+                                <p>A gyors rendezésnek egy változata a <cite lang="en">Median of Three</cite> pivot
+                                    választási stratégiát használja(link a
+                                    quick
+                                    sort Median of Three re). Egy másik híres variánsa a <cite lang="en">Median of
+                                        Medians</cite> algoritmust használja,
+                                    ennek a
+                                    változatnak az érdekessége, hogy legrosszabb esetben is n log n futási
+                                    idejű,
+                                    viszont az
+                                    algoritmust tipikusan nem éri meg használni, a nagyon magas konstans faktora miatt.
+                                </p>
+                                <p>A mérések menete a következő, -1 millió és 1 millió közötti random egész számokból a
+                                    leírt
+                                    mintának
+                                    megfelelően generált sorozatokat. 2000 től 2 ezresével 500 ezerig minden mérettel, és
+                                    minden
+                                    méretnél
+                                    100 darab rendezés átlag futási ideje kerül rögzíttésre.</p>
+                                <p>Megjegyezném, hogy a quicksortot és az insertion sort algoritmusait optimalizáltam, a
+                                    merge sort
+                                    és
+                                    heapsort rendezéset egy az egyben egy referencia alapján implementáltam.</p>
+                            </div>
+                        </div>
+                        <section id="sorted">
+                            <h3>Rendezett</h3>
+                            <p>Ebben az összehasonlításban sorozatok már eredetileg is rendezve vannak.</p>
+                            <a href="./assets/sorted.png" target="_blank">
+                                <img class="img-fluid img-thumbnail w-100" src="assets/sorted-thumbnail.png" alt="Diagram a rendezések sebességéről rendezett bemenetre">
+                            </a>
+                            <p>Véletlenszerű adatok esetén a quicksort és introsort dominál, az intro sort kis előnye a
+                                rövid (&lt; 16) intervallumokat insertionsortal rendezi, a heap sort és merge sort lényegesen
+                                    lassabbak. Ez a gyorsaság azért lehet mert a gyorsabb rendezés nem mozgatja feleslegesen
+                                    az elemeket. A legrosszabb rendezés a heapsort, mert a heap strucktúrát fent kell
+                                    tartania a rendezés során.</p>
+                        </section>
+                        <section id="almost-sorted">
+                            <h3>Majdnem rendezett</h3>
+                            <p>Itt az elemek maximum 4% a nincs a tényleges helyén.</p>
+                            <a href="./assets/almost-sorted.png" target="_blank">
+                                <img class="img-fluid img-thumbnail w-100" src="assets/almost-sorted-thumbnail.png" alt="Diagram a rendezések sebességéről majdnem rendezett bemenetre">
+                            </a>
+                            <p>Itt hasonló eredményeket láthatunk, mint a rendezett változatban.</p>
+                        </section>
+                        <section id="rotated">
+                            <h3>Forgatott</h3>
+                            <p>Itt az adatok rendezés után el lettek forgatva rendezés után. Ez azt jelenti, hogy az adatok
+                                között a
+                                következő reláció áll fent(jobbra forgatás esetén):</p>
+                            <p>
+                                a<sub>1</sub> &lt; a &lt; … &lt; a<sub>k</sub> &lt; a<sub>k+1</sub> &lt;
+                                a<sub>k+2</sub>
+                                &lt; … &lt; a<sub>n</sub> és a<sub>1</sub> &gt; a<sub>k+1</sub>
+                            </p>
+                            <a href="./assets/rotated.png" target="_blank">
+                                <img class="img-fluid img-thumbnail w-100" src="assets/rotated-thumbnail.png" alt="Diagram a rendezések sebességéről forgatott bemenetre">
+                            </a>
+                        </section>
+                        <section id="random">
+                            <h3>Véletlenszerű</h3>
+                            <p>Értelem szerűen itt az adatok véletlenszerű sorrendben vannak</p>
+                            <a href="./assets/random.png" target="_blank">
+                                <img class="img-fluid img-thumbnail w-100" src="assets/random-thumbnail.png" alt="Diagram a rendezések sebességéről random bemenetre">
+                            </a>
+                            <p>Véletlenszerű adatok esetén látszólag a quicksort és az introsort hasonlóan gyors, viszont a
+                                quick
+                                sort kaphat olyan sorozatot amire nagyságrendekkel lassabb lesz mint az átlagos futási
+                                ideje, ilyen
+                                az introsortnál nem fordulhat elő.</p>
+                            <p>Megfigyelhetjuk még hogy a heapsort megelőzi egy darabig a mergesort-ot, de nagyobb adatok
+                                esetén a
+                                heap fenntartása túl nagy számítási kapacitást foglal el, de ne feledjük hogy a merge
+                                sortnak a
+                                sorozat mellett még egy a sorozat méretével megegyező tárhelyre is szüksége van.</p>
+                        </section>
+                        <section id="conculsion">
+                            <h3>Konklúzió</h3>
+                            <p>az összehasonlíttás sajnos nem elég általános, hiszen „kisebb” számokat rendezünk, melyek
+                                másolása és
+                                mozgatása triviális, így a mozgatások számából következő eltéréseket nem reflektálja
+                                megfelelően az
+                                előző összehasonlíttás. Később esetleg nagyon típusokat, nem triviális másolással is
+                                összehasonlíthatunk, például Szövegek rendezése, vagy akár számolhatjuk a cserék és
+                                mozgatások
+                                számát is.</p>
+                            <p>A rendezések összehasonlítása a várt eredményt mutatja, hogy a hibrid rendezés jobb, mint a
+                                többi
+                                egyszerűbb rendezés. Feltehetően ez az egyik legjobb összehasonlításos rendezés. Melynek
+                                nincs
+                                különösebb rossz esete.</p>
+                            <p>További optimalizációs lehetőségek például a párhuzamosíttás, a quicksort, és ezért az
+                                introsort is
+                                viszonylag egyszerűen párhuzamosítható. Ennél egy kicsit nehezebben, de az összefésüléses
+                                rendezés
+                                is párhuzamosítható.</p>
+                            <p>A legjobb rendezési algoritmus azonban nem egyértelmű, attól függ, hogy mit és hogy hol
+                                rendezünk.
+                                Egész számokra valószínűleg a leggyorsabb rendezés a radixsort(link), vagy ha kis
+                                intervallumon lévő
+                                egészekről beszélünk akkor még gyorsabb a counting sort(link)</p>
+                        </section>
+                        <section id="real-time">
+                            <h3>„Valós időben”</h3>
+                            <div class="ratio ratio-16x9">
+                                <video width="1280" height="720" controls>
+                                    <source src="./assets/VisualizationAndComparisonOfSortingAlgorithms.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </section>
+                    </article>
+                    <article id="implementation">
+                        <h2>Implementáció C++</h2>
+                        <pre>
+                            <code class="cpp">
+                <span class="PreProc">#include </span><span class="Constant">&lt;cmath&gt;</span>
+                <span class="PreProc">#include </span><span class="Constant">&quot;insertionsort.hpp&quot;</span>
+                <span class="PreProc">#include </span><span class="Constant">&quot;heapsort.hpp&quot;</span>
+                <span class="PreProc">#include </span><span class="Constant">&quot;util.hpp&quot;</span>
+                
+                <span class="Type">int</span> medianOfThree(<span class="Type">int</span> arr[], <span class="Type">int</span> lo, <span class="Type">int</span> hi){
+                    <span class="Type">int</span> mid = (lo + hi) / <span class="Constant">2</span>;
+                    <span class="Statement">if</span>(arr[lo] &gt; arr[mid]) swap(arr[lo], arr[mid]);
+                    <span class="Statement">if</span>(arr[lo] &gt; arr[hi]) swap(arr[lo], arr[hi]);
+                    <span class="Statement">if</span>(arr[hi] &lt; arr[mid]) swap(arr[hi], arr[mid]);
+                    <span class="Statement">return</span> mid;
+                }
+                
+                <span class="Type">void</span> introsort(<span class="Type">int</span> arr[], <span class="Type">int</span> lo, <span class="Type">int</span> hi, <span class="Type">int</span> maxdepth){
+                
+                    <span class="Statement">if</span> (hi - lo &lt; <span class="Constant">16</span>){
+                        insertionsort(arr, lo, hi);
+                        <span class="Statement">return</span>;
+                    }
+                
+                    <span class="Statement">if</span>(maxdepth == <span class="Constant">0</span>){
+                        heapsort(arr, lo, hi);
+                        <span class="Statement">return</span>;
+                    }
+                
+                    <span class="Type">int</span> pivot = medianOfThree(arr, lo, hi);
+                    swap(arr[pivot], arr[hi-<span class="Constant">1</span>]);
+                    <span class="Type">int</span> partitionPoint = partition(arr, lo + <span class="Constant">1</span>, hi - <span class="Constant">1</span>);
+                    introsort(arr, lo, partitionPoint - <span class="Constant">1</span>, maxdepth - <span class="Constant">1</span>);
+                    introsort(arr, partitionPoint + <span class="Constant">1</span>, hi, maxdepth - <span class="Constant">1</span>);
+                }
+                
+                <span class="Type">void</span> sort(<span class="Type">int</span> arr[], <span class="Type">int</span> size){
+                    <span class="Type">int</span> maxdepth = std::ceil(std::log2f(size)) * <span class="Constant">8</span>;
+                    introsort(arr, <span class="Constant">0</span>, size -<span class="Constant">1</span>, maxdepth);
+                }
+                </code>
+                </pre>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

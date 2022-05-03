@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/css/custom_styles.css">
+    <script defer src="./src/js/bootstrap.bundle.min.js"></script>
+    <script defer src="./src/js/app.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>IntroSort</title>
+</head>
+
+<body>
+    <nav class="visually-hidden-focusable">
+        <a href="#main">Ugrás a tartalomra</a>
+    </nav>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <img class="d-inline-block align-text-top" src="./assets/sorting-icon.png" alt="Főoldal ikon"
+                        id="home-logo">
+                    IntroSort
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">IntroSort</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">QuickSort</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="heapsort.html">HeapSort</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="insertionsort.html">InsertionSort</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">Elérhetőségek</a>
+                        </li>
+                    </ul>
+                    <a target="_blank" href="https://github.com/Kristofy/introsort">
+                        <svg id="github-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                            <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path
+                                d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main" class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-xl-2">
+                <aside class="sticky-xl-top">
+                    <article id="table-of-content" class="bg-light my-3 p-2 pe-4 border d-inline-block w-auto">
+                        <h2>Tartalom</h2>
+                        <ul>
+                            <li>
+                                <a class="link-secondary" href="#intro" data-id="intro">Előszó</a>
+                            </li>
+                            <li>
+                                <a class="link-secondary" href="#algo" data-id="algo">Algoritmus</a>
+                                <ul>
+                                    <li>
+                                        <a class="link-secondary" href="#partition" data-id="partition">Partícionálás</a>
+                                        <ul>
+                                            <li>
+                                                <a class="link-secondary" href="#lomuto" data-id="lomuto">Lomuto</a>
+                                            </li>
+                                            <li>
+                                                <a class="link-secondary" href="#hoare" data-id="hoare">Hoare</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="link-secondary" href="#pivot" data-id="pivot">Pivotválasztási stratégiák</a>
+                                        <ul>
+                                            <li>
+                                                <a class="link-secondary" href="#center" data-id="center">Középső</a>
+                                            </li>
+                                            <li>
+                                                <a class="link-secondary" href="#random" data-id="random">Véletlenszerű</a>
+                                            </li>
+                                            <li>
+                                                <a class="link-secondary" href="#mo3" data-id="mo3">Medián</a>
+                                            </li>
+                                            <li>
+                                                <a class="link-secondary" href="#mom" data-id="mom">Mediánok mediánja</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="link-secondary" href="#complexity" data-id="complexity">Hatékonyság</a>
+                            </li>
+                            <li>
+                                <a class="link-secondary" href="#implementation" data-id="implementation">Implementáció C++</a>
+                            </li>
+                        </ul>
+                    </article>
+                </aside>
+            </div>
+            <div class="col-12 col-xl-10">
+                <div class="me-4">
+                    <article id="intro">
+                        <h2>Előszó</h2>
+                        <p>Ez az 1959 es rendezési algoritmus alap példája az oszd meg és uralkodj stratégiának.</p>
+                        <p>A particionálás eljárás használatával rekurzivan rendez egy sorozatot. A gyorsabb változatai nem stabil rendezések.</p>
+                        <p>Ahogy a neve is mutatja egy gyors algoritmusról van szó, ez azonban nagyban függ attól, hogy hogyan választjuk meg a „középső” (továbbiakban pivot) elemet, amelyhez képes a particionálás balra helyezi a nála kisebbeket és jobbra a nála nagyobbakat. Általában a gyorsrendezés jóval gyorsabb, mint a kupacrendezés vagy az összefésüléses rendezés.</p>
+                        
+                    </article>
+                    <article id="algo">
+                        <h2>Algoritmus</h2>
+                        <p>Az oszd meg és uralkodj stratégiáva használatával, a teljes tömb rendezését felossztjuk két részre, egy kiválasztott elem(továbbiakban pivot) alapján partícionáljuk a tömböt, ekkor a pivot bal oldalán minden elem kisebb a pivot elemnél és a jobb oldalán minden elem nagyobb a pivot elemnél. Ekkor a pivot a végső helyén van. A feladatot ekkor két részre osztjuk a bal résztömb, és a jobb résztömb rendezésére. Az uralkodás részt triviális, hiszen a tomb már rendezve miután a bal és jobb résztomböt is rendeztük.</p>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Quicksort-example.gif" alt="Gyorsrendezés példa">
+                    <section id="partition">
+                        <h3>Partícionálás</h3>
+                        <ul>
+                            <li>
+                                <h4 id="lomuto">Lomuto particionálás</h4>
+                                <p>A partícionálás első lépése hogy a pivot elemet a tömb végére tesszük.</p>
+                                <p>Következő lépésben minden iterációban a tömb első elemétől az utolsó előtti elemig végigmegyünk, és ha egy a pivotnál kisebb elemet találunk, akkor a megfelelő mutató által kijelölt elem, utáni elemmel kicseréljük, és növeljük egyel ezt a mutatót.</p>
+                                <h5>Gyorsrendezés lomuto particionálással</h5>
+                                <pre class="bg-light px-3 pb-3"><code>
+Function quicksort(arr: Array, lo: Ingeter, hi: Integer):
+    pivot:Integer = choosePivot(arr, lo, hi)
+    partitionPoint:Integer = partition(arr, lo, hi, pivot)
+    quicksort (arr, lo, partitionPoint - 1)
+    quicksort (arr, partitionPoint + 1, hi)
+    return;
+
+Function partition(arr: Array, lo: Integer, hi: Integer, pivot: Integer):
+    swap(arr[pivot], arr[hi])
+    p: Integer = arr[hi]
+    i: Ingeter = lo
+    for j from lo to (hi - 1):
+        if arr[j] &lt; p:
+            swap(arr[i], arr[j])
+            i++
+    swap(arr[i], arr[hi])
+    return i
+                  </code></pre>
+                                         
+                            
+                            </li>
+                            <li>
+                                <h4 id="hoare">Hoare particionálás</h4>
+                                <p>Az ötlet egyszerűbb, veszünk két mutatót, az egyiket a tömb elejére tesszük és előre felé haladunk ameddig nem találunk egy a pivotnál nagyobb elemet, a másik mutatót a tömb végére és visszafelé keresünk a pivotnál kisebb elemet, ha találtunk mindkettőt akkor a két elemet kicseréljük, ezt addig ismételjük ameddig az elejéről és a végéről indult mutatók össze nem érnek.</p>
+                                <p>Az algoritums leírása egyszerűbb, de a helyes megvalósítása nehezebb</p>
+                                <h5>Gyorsrendezés hoare particionálással</h5>
+                            
+                                <pre class="bg-light px-3 pb-3"><code>
+Function quicksort(arr: Array, lo: Ingeter, hi: Integer):
+    pivot:Integer = choosePivot(arr, lo, hi)
+    partitionPoint:Integer = partition(arr, lo, hi, pivot)
+    quicksort(arr, lo, partitionPoint)
+    quicksort(arr, partitionPoint + 1, hi)
+    return;
+
+Function partition(arr: Array, lo: Integer, hi: Integer, pivot: Integer):
+    p:Integer = arr[pivot]
+    i:Integer = lo - 1, j: Integer = hi + 1
+
+    while true:
+        do i++ while arr[i] &lt; p
+        do j-- while arr[i] &gt; p
+
+        if i &ge; j:
+            return i;
+
+        swap(arr[i], arr[j])
+ 
+    return -1 // Ezt sosem éri el
+                                                      </code></pre>
+                            </li>
+                        </ul>
+                    </section>
+                    <section id="pivot">
+                        <h3>Pivotválasztási stratégiák</h3>
+                        <ul>
+                            <li>
+                                <h4 id="center">Középső</h4>
+                                <p>A középső, vagy esetleg az egyik szélső elemet választani kézenfekvőnek tűnik, viszont ebben az esetben könnyen megadható olyan sorozat ahol az egyes particionálási lépések csak egy - két elemet tesznek a pivot elem bal vagy jobb oldalára, így alig csökkentik a nagyobb résztömb méretét. Az első elem választása esetén egy monoton sorozat lassú, ( O(n<sup>2</sup>) ) futási időhöz vezet.</p>
+                            </li>
+                            <li>
+                                <h4 id="random">Véletlenszerű</h4>
+                                <p>Ha nem választható egy bizonyos elem akkor, jó ötlet lehet egy véletlen elemet választani pivot elemnek, így nem lehet olyan sorozatot generálni, amelyre biztosan lassú lesz az algoritmus, viszont így is előfordulhat, habár matematikailag nagyon kicsi az esélye hogy miden alkalommal mondjuk a legkisebb elemet választjuk ki, mégis lehetséges.</p>
+                            </li>
+                            <li>
+                                <h4 id="mo3">Medián</h4>
+                                <p>A leggyakrabban választott stratégia a <span lang="en">Median of three</span>, az algoritmus lényege, hogy válasszunk három elemet (tipikusan első egy random középen és utolsó) és rendezzük őket növekvő sorrendbe, és válasszuk a középső elemet pivotnak, ekkor a particionálásnál nem kell megvizsgálnunk az elso elemet, mert biztosan kisebb, mint a pivot, és az utolsó elemet sem, mert biztosan nagyobb, mint a pivot.</p>
+                                <p>Nem csak nehezebb ellene olyan sorozatott generálni amelyre az algoritmus lassú (random középső elem választásnál nem is lehetséges), de egyéb optimalizálási lépéseket is megenged a particionálásnál, viszont figyelni kell arra, hogy gyorsrendezésnek ekkor a \(|array| \lt 3 \) eseteket le kell kezelnie.</p>
+                            </li>
+                            <li>
+                                <h4 id="mom">Mediánok mediánja</h4>
+                                <code>n := Tömb mérete</code>
+                                <p>A <span lang="en">median of medians</span>ans</s> egy olyan algoritmus, amely nem használ véletlen kiválasztást, ezzel a determinisztikus algoritmussal olyan pivotot tudunk választani, ahol garantált hogy a gyorsrendezés O(n log n). Habár az algoritmus ötletes a gyakorlatban túl lassú és szinte minden esetben lemarad a Median of Three algoritmus mögött.</p>
+                                <p>Az algoritmus a következőképp zajlik: "tegyük" 5 elemenként egy csoportba a tömb elemeit, 5 elemből megmutatható, hogy 6 összehasonlítással meghatározható a középső elem, az így kapott mediánokra rekurzívan ismételjük az algoritmust, már csak egy elem marad, és ezt az elemet választjuk pivotnak</p>
+                                <p>Az így választott pivot a csoportok felének mediánjánál kisebb, és a csoportok felének mediánjánál nagyobb, ez a n / 10 darab csoport. Egy olyan csorportban, ahol a medián kisebb mint a pivot, ott van 3 a pivotnál kisebb elem(a medián és az annál kisebb két elem), így 3/10 * n darab a pivotnál kisebb, és hasonló gondolat lapján 3/10 * n darab a pivotnál nagyobb elem van. Azaz a választott pivot garantáltan &ge; 30% és &le; 30%, vagyis garantáltan a középső 40%-ban van.</p>
+                                <p>Ez az algoritmus lineáris, mert először 6n összehasonlíttást, majd ennek folyamatosan az ötöde, így az összehasonlítássok száma összesen</p>
+                                <p class="lh-lg">\(6n + \frac{6}{5}n + \frac{6}{25}n + \dots\) összesen \( \log_5{n} \) darab taggal.</p>
+                                <p class="lh-xl">\( 6n \frac{\left(\frac{1}{5}\right)^{\log_5{n} + 1} - 1}{\frac{1}{5}-1} \) = \( 6n \frac{ \left(5^{-1}\right)^{\log_5{n}} - 5}{-4} \) = \( 6n \frac{ 5^{\log_5{n^{-1}}} - 5}{-4} \) = \( 6n \frac{ n^{-1} - 5}{-4} \) = \( \frac{ 6n*n^{-1} - 5*6n}{-4} \) = \( \frac{ 6 - 30n}{-4} \) = \(\frac{15n}{2} + \frac{3}{2} \) </p><p>azaz az pivotválasztás a tömb méretének elemszámában lineáris darabszámú összehasonlítást tesz. </p>
+                            </li>
+                        </ul>
+                    </section> 
+                    </article>
+                    <article id="complexity">
+                        <h2>Hatékonyság</h2>
+                        <p>A gyorsrendezés a gyakorlatban nagyon gyors, többek között azért, mert a már helyükön lévő elemeket nem mozgatja feleslegesen.</p>
+                        <p>legrosszabb esetben a ha a pivot választás rossz, akkor minden elem a pivot egyik oldalán lesz, így csökkentve a sorozat méretét 1 el. Egyesével n – 1 szer csökkenthető a sorozat mérete, és minden egyes csökkentés O(n) időt vesz igénybe a particionálás miatt, így legrosszabb esetben a futási idő négyzetes</p>
+                        <p>Általános esetben minden pivot választásnál a sorozat mediánját szeretnénk választani, valamerre a közepe felé, így log n egymásba ágyazott hívás után a részsorozat hossza 1 lesz. log n darab szint után, minden rétegen minden elemet particionálunk egyszer így a partícionálás összköltsége egy szinten n, és a teljes algoritmus költésége(optimális pivotválasztás esetén) O(n log n) </p>
+                    </article>
+                    <article id="implementation">
+                        <h2>Implementáció C++</h2>
+                        <code class="cpp">
+                        <pre id='vimCodeElement'>
+                        
+                        <span class="Type">inline</span> <span class="Type">void</span> swap(<span class="Type">int</span>&amp; a, <span class="Type">int</span>&amp; b){
+                            <span class="Type">int</span> tmp = a;
+                            a = b;
+                            b = tmp;
+                        }
+                        
+                        <span class="Comment">//hoare partition</span>
+                        <span class="Type">int</span> partition(<span class="Type">int</span> arr[], <span class="Type">int</span> lo, <span class="Type">int</span> hi, <span class="Type">int</span> pivot)
+                        {
+                            <span class="Type">int</span> i = lo-<span class="Constant">1</span>, j = hi+<span class="Constant">1</span>;
+                            <span class="Statement">while</span>(<span class="Constant">true</span>)
+                            {
+                                <span class="Statement">do</span> i++; <span class="Statement">while</span>(arr[i] &lt; pivot);
+                                <span class="Statement">do</span> j--; <span class="Statement">while</span>(arr[j] &gt; pivot);
+                        
+                                <span class="Statement">if</span>(i &gt;= j) <span class="Statement">return</span> j;
+                                swap(arr[i], arr[j]);
+                            }
+                            <span class="Statement">return</span> -<span class="Constant">1</span>;
+                        }
+                        
+                        <span class="Type">int</span> medianOfThree(<span class="Type">int</span> arr[], <span class="Type">int</span> lo, <span class="Type">int</span> hi){
+                            <span class="Type">int</span> mid =  lo + <span class="Constant">1</span> + rand() % (hi - lo - <span class="Constant">1</span>);
+                            <span class="Statement">if</span>(arr[lo] &gt; arr[mid]) swap(arr[lo], arr[mid]);
+                            <span class="Statement">if</span>(arr[lo] &gt; arr[hi]) swap(arr[lo], arr[hi]);
+                            <span class="Statement">if</span>(arr[hi] &lt; arr[mid]) swap(arr[hi], arr[mid]);
+                            <span class="Statement">return</span> mid;
+                        }
+                        
+                        <span class="Type">void</span> quicksort(<span class="Type">int</span> arr[], <span class="Type">int</span> lo, <span class="Type">int</span> hi){
+                            <span class="Statement">if</span> (hi - lo &lt; <span class="Constant">2</span>){
+                                <span class="Statement">if</span>(arr[hi] &lt; arr[lo])
+                                    swap(arr[hi], arr[lo]);
+                                <span class="Statement">return</span>;
+                            }
+                            <span class="Type">int</span> pivot = medianOfThree(arr, lo, hi);
+                            <span class="Type">int</span> partitionPoint = partition(arr, lo + <span class="Constant">1</span>, hi - <span class="Constant">1</span>, arr[pivot]);
+                            quicksort(arr, lo, partitionPoint);
+                            quicksort(arr, partitionPoint + <span class="Constant">1</span>, hi);
+                        }
+                        
+                        <span class="Type">void</span> quicksort_all(<span class="Type">int</span> arr[], <span class="Type">int</span> size){
+                            quicksort(arr, <span class="Constant">0</span>, size - <span class="Constant">1</span>);
+                        }
+                        </pre>
+                    </code>                     
+
+                    </article>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+</body>
+
+</html>
