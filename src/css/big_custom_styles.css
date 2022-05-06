@@ -1,0 +1,13 @@
+@import url('./custom_styles.css');
+
+body {
+    font-size: 1.9em;
+}
+
+#big-font {
+    display: none;
+}
+
+#normal-font {
+    display: block;
+}

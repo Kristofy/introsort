@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="hu" lang="hu">
+
+<head>
+	<title>Into - sort video leírása</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="./src/css/custom_styles.css" title="normal" />
+    <link rel="alternate stylesheet" type="text/css" media="screen" href="./src/css/big_custom_styles.css" title="nagybetus" />
+    <link rel="stylesheet" type="text/css" media="print" href="./src/css/print.css" />
+    <script type="text/javascript" src="./src/js/styleswitcher.js"></script>
+</head>
+<body>
+    <div class="visually-hidden-focusable">
+        <a href="#main">Ugrás a tartalomra</a>
+    </div>
+
+    <div>
+        <div class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <div class="row w-100">
+                    <div class="col-12 col-md-6">
+                        <a class="navbar-brand" href="#">
+                            <img class="d-inline-block align-text-top" src="./assets/sorting-icon.png" alt="Főoldal icon"
+                                id="home-logo" />
+                            IntroSort
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="d-flex flex-row-reverse">
+                            <ul class="navbar-nav w-auto flex-wrap ms-2 mb-2 mb-lg-0 d-flex flex-row">
+                                <li class="nav-item me-2">
+                                    <a class="nav-link" href="index.html">IntroSort</a>
+                                </li>
+                                <li class="nav-item me-2">
+                                    <a class="nav-link" href="quicksort.html">QuickSort</a>
+                                </li>
+                                <li class="nav-item me-2">
+                                    <a class="nav-link" href="heapsort.html">HeapSort</a>
+                                </li>
+                                <li class="nav-item me-2">
+                                    <a class="nav-link" href="insertionsort.html">InsertionSort</a>
+                                </li>
+                                <li class="nav-item me-2">
+                                    <a class="nav-link" href="about.html">Elérhetőségek</a>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <a class="nav-item d-block mx-2 me-2" href="https://github.com/Kristofy/introsort">
+                                        <i class="fa-brands fa-github me-2"></i>
+                                    </a>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <div class="d-block px-2 pe-auto">
+                                        <i id="big-font" onclick="setActiveStyleSheet('nagybetus'); return false;" class="fa-solid fa-text-height"></i>
+                                        <i id="normal-font" onclick="setActiveStyleSheet('normal'); return false;" class="fa-solid fa-text-height"></i>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+
+    <div id="main" class="container-fluid">
+       <h1>A videó teljes leírása</h1>
+        <p>A videó 9 különböző rendezési algoritmust mutat be futás közben, ezek a következők:</p>
+        <ul>
+            <li>Kiválasztásos rendezés</li>
+            <li>Shell rendezés</li>
+            <li>Beillesztéses rendezés</li>
+            <li>Összefésüléses rendezés</li>
+            <li>Gyorsrendezés</li>
+            <li>Kupacrendezés</li>
+            <li>Buborék rendezés</li>
+            <li>Fésű rendezés(<span lang="en">Comb sort</span></li>
+            <li>Koktél rendezés</li>
+        </ul>
+        <p>A videó az egyes algoritmusok belső működésének egy egyszerűbb változatát is bemutatja, azzal hogy "futás közben" megmutatja az éppen rendezett adatokat, valamit az algoritmus által átthelyezett adatokat is.</p>
+        <p>A videó első negyedében az algoritmusok random adaton futnak, ahol a következő eredmény született</p>
+        <ol>
+            <li>Gyorsrendezés</li>
+            <li>Shell rendezés</li>
+            <li>Összefésüléses rendezés</li>
+            <li>Kupacrendezés</li>
+            <li>Fésű rendezés(<span lang="en">Comb sort</span></li>
+            <li>Beillesztéses rendezés</li>
+            <li>Koktél rendezés</li>
+            <li>Kiválasztásos rendezés</li>
+            <li>Buborék rendezés</li>
+        </ol>
+        <p>A Kupacrendezés után már csak a lassabb algoritmusok maradtak közülük is Kiválasztásos és a Buborék rendezés jóval tovább dolgoztak, mint a társaik.</p>
+        <p>A második negyedben az algoritmusok kevés egyedi adaton futnak, ez azt jelenti hogy ugyan az az adat többször is megjelenik a rendezni kívánt adathalmazban. Itt a következő eredmények születtek:</p>
+        <ol>
+            <li>Gyorsrendezés</li>
+            <li>Shell rendezés</li>
+            <li>Összefésüléses rendezés</li>
+            <li>Kupacrendezés</li>
+            <li>Fésű rendezés(<span lang="en">Comb sort</span></li>
+            <li>Beillesztéses rendezés</li>
+            <li>Kiválasztásos rendezés</li>
+            <li>Koktél rendezés</li>
+            <li>Buborék rendezés</li>
+        </ol>
+        <p>Az eredmények nem sokat változtak az előző esethez képest, ebben az esetben a Kupac és a Fésű rendezés csaknem egyszere fejezték be a rendezést. Ahogy az előbb is történt az utolsó pár helyen lévő rendezési algoritmusok, ahogy az elvárt volt jelentőssen több ideig tartott mint a helyezettek első fele</p>
+        <p>A harmadik negyedben az algoritmusok megfordított adathalmazon fognak versenyezni, itt az adatok pontosan fordítva vannak sorba téve, mint ahogy azt rendezni szeretnék. Itt a helyezések a következők:</p>
+        <ol>
+            <li>Gyorsrendezés</li>
+            <li>Shell rendezés</li>
+            <li>Összefésüléses rendezés</li>
+            <li>Kupacrendezés</li>
+            <li>Fésű rendezés(<span lang="en">Comb sort</span></li>
+            <li>Kiválasztásos rendezés</li>
+            <li>Beillesztéses rendezés</li>
+            <li>Buborék rendezés</li>
+            <li>Koktél rendezés</li>
+        </ol>
+        <p>Az eredmények itt több helyen is mások mint az eddigi fordulókban, ugyanis a lasabb algoritmusok helyezése megváltozott. Ez volt az eddigi leglasabb forduló, ez annak köszönhető hogy a lasabb négyzetes algoritmusoknak a legrosszabb esete a fordított tömb rendezése.</p>
+        <p>Az utolsó negyedben az algoritmusok majdnem rendezett adathalmazt próbálnak rendezni, itt csak pár elem nincs a helyén és ezek az elemek sincsenek messze a tényleges pozíciójuktól. Az eredmények itt a következők lettek:</p>
+        <ol>
+            <li>Beillesztéses rendezés</li>
+            <li>Koktél rendezés</li>
+            <li>Gyorsrendezés</li>
+            <li>Shell rendezés</li>
+            <li>Összefésüléses rendezés</li>
+            <li>Fésű rendezés(<span lang="en">Comb sort</span></li>
+            <li>Kupacrendezés</li>
+            <li>Buborék rendezés</li>
+            <li>Kiválasztásos rendezés</li>
+        </ol>
+        <p>A Beillesztéses rendezés itt messze megelőzött minden egyéb algoritmust. A Kupac rendezés, habár itt nagyon nagy hátrányban indul, mert ameddig a többi algoritmus(kivétel az utlolsó két helyen lévőt) képes kihasználni valamilyen szinten ezt a tulajdonságot, a Kupacrendezés először felépítt egy kupacot és ezzel áttrendezi az adatokat és csak ezek után áll neki rendezni. Az utolsó két helyen lévő algoritmus sokkal lasabb mint a többi.</p>
+    </div>
+
+
+    <div class="container">
+        <div id="footer" class="py-3">
+          <div class="row border-top pt-2">
+            <div class="col-12 col-md-3 mb-2">
+              <h4>Navigáció</h4>
+              <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a lang="en" href="./index.html" class="nav-link p-0 text-muted">Introsort</a></li>
+                <li class="nav-item mb-2"><a lang="en" href="./quicksort.html" class="nav-link p-0 text-muted">Quicksort</a></li>
+                <li class="nav-item mb-2"><a lang="en" href="./heapsort.html" class="nav-link p-0 text-muted">Heapsort</a></li>
+                <li class="nav-item mb-2"><a lang="en" href="./insertionsort.html" class="nav-link p-0 text-muted">Insertionsort</a></li>
+                <li class="nav-item mb-2"><a href="./about.html" class="nav-link p-0 text-muted">Elérhetőségek</a></li>
+              </ul>
+            </div>
+      
+            <div class="col-12 col-md-6 mb-2">
+              <h4>Elérhetőségek</h4>
+              <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a class="nav-link p-0 text-muted" href="tel:+36202547144" title="tel:+36 20 254 7144"><i class="fas fa-phone fa-fw"></i>+36 20 254 7144</a></li>
+                <li class="nav-item mb-2"><a class="nav-link p-0 text-muted" href="mailto:kristofosztopani@gmail.com" title="kristofosztopani@gmail.com"><i class="fas fa-fw fa-envelope"></i>kristofosztopani@gmail.com</a></li>
+              </ul>
+            </div>
+      
+            <div class="col-12 col-md-3 mb-2">
+              <h4>Project</h4>
+              <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="https://github.com/Kristofy/introsort" class="nav-link p-0 text-muted"><i class="fa-brands fa-github"></i> Weboldal</a></li>
+                <li class="nav-item mb-2"><a href="https://github.com/Kristofy/Sorting-benchmark" class="nav-link p-0 text-muted"><i class="fa-brands fa-github"></i> Mérések</a></li>
+              </ul>
+            </div>
+        </div>
+    </div>
+      </div>
+      <script type="text/javascript" src="./src/js/bootstrap.bundle.min.js"></script>
+      <script type="text/javascript" src="./src/js/app.js"></script>
+</body>
+</html>

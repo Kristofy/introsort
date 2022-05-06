@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" media="screen" href="./src/css/custom_styles.css">
+    <link rel="stylesheet" media="screen" href="./src/css/custom_styles.css" title="normal">
+    <link rel="alternate stylesheet" media="screen" href="./src/css/big_custom_styles.css" title="nagybetus">
     <link rel="stylesheet" media="print" href="./src/css/print.css">
     <script defer src="./src/js/bootstrap.bundle.min.js"></script>
     <script defer src="./src/js/app.js"></script>
+    <script src="./src/js/styleswitcher.js"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <title>Beillesztéses rendezés - Introsort</title>
 </head>
@@ -34,7 +36,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">IntroSort</a>
+                            <a class="nav-link" href="index.html">IntroSort</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="quicksort.html">QuickSort</a>
@@ -48,10 +50,18 @@
                         <li class="nav-item">
                             <a class="nav-link" href="about.html">Elérhetőségek</a>
                         </li>
+                        <li class="d-flex align-items-center">
+                            <a class="nav-item d-block mx-2" target="_blank" href="https://github.com/Kristofy/introsort">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <div class="d-block px-2 pe-auto">
+                                <i id="big-font" role="button" onclick="setActiveStyleSheet('nagybetus'); return false;" class="fa-solid fa-text-height"></i>
+                                <i id="normal-font" role="button" onclick="setActiveStyleSheet('normal'); return false;" class="fa-solid fa-text-height"></i>
+                            </div>
+                        </li>
                     </ul>
-                    <a target="_blank" href="https://github.com/Kristofy/introsort">
-                        <i class="fa-brands fa-github"></i>
-                    </a>
                 </div>
             </div>
         </nav>
@@ -62,7 +72,7 @@
             <div class="col-12 col-xl-2">
                 <aside class="sticky-xl-top">
                     <nav id="table-of-content">
-                        <div class="bg-light my-3 p-2 pe-4 border d-inline-block w-auto">
+                        <div class="bg-light my-3 p-2 pe-4 border d-inline-block w-100 text-break">
                         <h1>Tartalom</h1>
                         <ul>
                             <li>
@@ -86,12 +96,12 @@
                 <div class="me-4">
                     <article id="intro">
                         <h1>Előszó</h1>
-                        <p>Az insertion sort egy stabil rendezés, azaz az egyenlő elemek sorrendje ugyan az rendezés előtt és után. Az insertion sort az egyik legjobb rendezés kis tömbökre.</p>
+                        <p>Az insertion sort egy <em>stabil rendezés</em>, azaz az egyenlő elemek sorrendje ugyan az rendezés előtt és után. Az insertion sort az egyik legjobb rendezés kis tömbökre.</p>
                     </article>
                     <article id="algo">
                         <h1>Algoritmus</h1>
                         <p>A legkisebb rendezett résszel kezdünk ami az egy elemet tartalmazó tömb, ezt a rendezett tömböt a sorozat elején tartjuk és minden lépésben a következő elemet beszúrjuk a rendezett részbe, úgy hogy továbbra is rendezett maradjon.</p>
-                        <p>Ez a beszúrás megoldható úgy hogy, addig cserélgetjük az előző elemmel a mostanit ameddig az előző nagyobb nála, viszont egy effektívebb megoldás egy forgatást használni, elvesszül a jelenlegi elemet, és egyel előre másoljuk azokat az elemeket a rendezett tömbben  amelyek kisebbek a kivett elemnél, és az üres helyre beillesztjuk a kivett elemet</p>
+                        <p>Ez a beszúrás megoldható úgy hogy, addig cserélgetjük az előző elemmel a mostanit ameddig az előző nagyobb nála, viszont egy effektívebb megoldás egy <em>forgatást</em> használni, elvesszül a jelenlegi elemet, és egyel előre másoljuk azokat az elemeket a rendezett tömbben  amelyek kisebbek a kivett elemnél, és az üres helyre beillesztjuk a kivett elemet</p>
 <img src="./assets/Insertion-sort-example-300px.gif" alt="Egy animáció a beillesztéses rendezés működéséről">
                     <pre class="bg-light px-3 pb-3"><code>
 Function insertionsort(arr: Array, size: Integer):
@@ -160,8 +170,8 @@ Function insertionsort(arr: Array, size: Integer):
             <div class="col-12 col-md-3 mb-2">
               <h4>Project</h4>
               <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="https://github.com/Kristofy/introsort" class="nav-link p-0 text-muted"><i class="fa-brands fa-github"></i> Weboldal</a></li>
-                <li class="nav-item mb-2"><a href="https://github.com/Kristofy/Sorting-benchmark" class="nav-link p-0 text-muted"><i class="fa-brands fa-github"></i> Mérések</a></li>
+                <li class="nav-item mb-2"><a target="_blank" href="https://github.com/Kristofy/introsort" class="nav-link p-0 text-muted"><i class="fa-brands fa-github"></i> Weboldal</a></li>
+                <li class="nav-item mb-2"><a target="_blank" href="https://github.com/Kristofy/Sorting-benchmark" class="nav-link p-0 text-muted"><i class="fa-brands fa-github"></i> Mérések</a></li>
               </ul>
             </div>
         </div>

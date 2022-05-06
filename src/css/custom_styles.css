@@ -41,6 +41,15 @@
     -moz-mask-image: radial-gradient(ellipse closest-side at center, #ffffffff 40%, transparent 80%);
 }
 
+#normal-font {
+    display: none;
+}
+
+#normal-font, #big-font {
+    cursor: pointer;
+}
+
+
 main a:visited {
     color: var(--bs-secondary);
 }
@@ -49,11 +58,11 @@ p {
     text-align: justify;
 }
 
-h2{
+h1{
     color: var(--bs-primary);
 }
 
-h3{
+h2{
     color: var(--bs-secondary);
 }
 
@@ -113,4 +122,8 @@ code.cpp pre { white-space: pre-wrap; font-family: monospace; color: #000; backg
 
 .lh-xl{
     line-height: 2.5em;
+}
+
+#hidden-textarea {
+    display: none;
 }

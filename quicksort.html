@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" media="screen" href="./src/css/custom_styles.css">
+    <link rel="stylesheet" media="screen" href="./src/css/custom_styles.css" title="normal">
+    <link rel="alternate stylesheet" media="screen" href="./src/css/big_custom_styles.css" title="nagybetus">
     <link rel="stylesheet" media="print" href="./src/css/print.css">
     <script defer src="./src/js/bootstrap.bundle.min.js"></script>
     <script defer src="./src/js/app.js"></script>
+    <script src="./src/js/styleswitcher.js"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <title>Gyorsrendezés - Introsort</title>
 </head>
@@ -37,7 +39,7 @@
                             <a class="nav-link" href="index.html">IntroSort</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">QuickSort</a>
+                            <a class="nav-link active" aria-current="page" href="quicksort.html">QuickSort</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="heapsort.html">HeapSort</a>
@@ -48,10 +50,18 @@
                         <li class="nav-item">
                             <a class="nav-link" href="about.html">Elérhetőségek</a>
                         </li>
+                        <li class="d-flex align-items-center">
+                            <a class="nav-item d-block mx-2" target="_blank" href="https://github.com/Kristofy/introsort">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <div class="d-block px-2 pe-auto">
+                                <i id="big-font" role="button" onclick="setActiveStyleSheet('nagybetus'); return false;" class="fa-solid fa-text-height"></i>
+                                <i id="normal-font" role="button" onclick="setActiveStyleSheet('normal'); return false;" class="fa-solid fa-text-height"></i>
+                            </div>
+                        </li>
                     </ul>
-                    <a target="_blank" href="https://github.com/Kristofy/introsort">
-                        <i class="fa-brands fa-github"></i>
-                    </a>
                 </div>
             </div>
         </nav>
@@ -59,10 +69,10 @@
 
     <main id="main" class="container-fluid">
         <div class="row">
-            <div class="col-12 col-xl-2">
+            <div class="col-12 col-xl-3">
                 <aside class="sticky-xl-top">
                     <nav id="table-of-content">
-                        <div class="bg-light my-3 p-2 pe-4 border d-inline-block w-auto">
+                        <div class="bg-light my-3 p-2 pe-4 border d-inline-block w-100 text-break">
                         <h1>Tartalom</h1>
                         <ul>
                             <li>
@@ -112,18 +122,18 @@
                     </nav>
                 </aside>
             </div>
-            <div class="col-12 col-xl-10">
+            <div class="col-12 col-xl-9">
                 <div class="me-4">
                     <article id="intro">
                         <h1>Előszó</h1>
-                        <p>Ez az 1959 es rendezési algoritmus alap példája az oszd meg és uralkodj stratégiának.</p>
-                        <p>A particionálás eljárás használatával rekurzivan rendez egy sorozatot. A gyorsabb változatai nem stabil rendezések.</p>
-                        <p>Ahogy a neve is mutatja egy gyors algoritmusról van szó, ez azonban nagyban függ attól, hogy hogyan választjuk meg a „középső” (továbbiakban pivot) elemet, amelyhez képes a particionálás balra helyezi a nála kisebbeket és jobbra a nála nagyobbakat. Általában a gyorsrendezés jóval gyorsabb, mint a kupacrendezés vagy az összefésüléses rendezés.</p>
+                        <p>Ez az 1959 es rendezési algoritmus alap példája az <strong>oszd meg és uralkodj stratégiának</strong>.</p>
+                        <p>A <em>particionálás</em> eljárás használatával rekurzivan rendez egy sorozatot. A gyorsabb változatai <strong>nem stabil</strong> rendezések.</p>
+                        <p>Ahogy a neve is mutatja egy gyors algoritmusról van szó, ez azonban nagyban függ attól, hogy hogyan választjuk meg a „középső” (továbbiakban <strong>pivot</strong>) elemet, amelyhez képes a particionálás balra helyezi a nála kisebbeket és jobbra a nála nagyobbakat. Általában a gyorsrendezés jóval gyorsabb, mint a kupacrendezés vagy az összefésüléses rendezés.</p>
                         
                     </article>
                     <article id="algo">
                         <h1>Algoritmus</h1>
-                        <p>Az oszd meg és uralkodj stratégiáva használatával, a teljes tömb rendezését felossztjuk két részre, egy kiválasztott elem(továbbiakban pivot) alapján partícionáljuk a tömböt, ekkor a pivot bal oldalán minden elem kisebb a pivot elemnél és a jobb oldalán minden elem nagyobb a pivot elemnél. Ekkor a pivot a végső helyén van. A feladatot ekkor két részre osztjuk a bal résztömb, és a jobb résztömb rendezésére. Az uralkodás részt triviális, hiszen a tomb már rendezve miután a bal és jobb résztomböt is rendeztük.</p>
+                        <p>Az oszd meg és uralkodj stratégia használatával, a teljes tömb rendezését felossztjuk két részre, egy kiválasztott elem alapján partícionáljuk a tömböt, ekkor a pivot bal oldalán minden elem kisebb a pivot elemnél és a jobb oldalán minden elem nagyobb a pivot elemnél. Ekkor a pivot a végső helyén van. A feladatot ekkor két részre osztjuk a bal résztömb, és a jobb résztömb rendezésére. Az uralkodás részt triviális, hiszen a tomb már rendezve miután a bal és jobb résztomböt is rendeztük.</p>
                         <img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Quicksort-example.gif" alt="Gyorsrendezés példa">
                     <section id="partition">
                         <h2>Partícionálás</h2>
@@ -192,7 +202,7 @@ Function partition(arr: Array, lo: Integer, hi: Integer, pivot: Integer):
                         <ul>
                             <li>
                                 <h3 id="center">Középső</h3>
-                                <p>A középső, vagy esetleg az egyik szélső elemet választani kézenfekvőnek tűnik, viszont ebben az esetben könnyen megadható olyan sorozat ahol az egyes particionálási lépések csak egy - két elemet tesznek a pivot elem bal vagy jobb oldalára, így alig csökkentik a nagyobb résztömb méretét. Az első elem választása esetén egy monoton sorozat lassú, ( O(n<sup>2</sup>) ) futási időhöz vezet.</p>
+                                <p>A középső, vagy esetleg az egyik szélső elemet választani kézenfekvőnek tűnik, viszont ebben az esetben könnyen megadható olyan sorozat ahol az egyes particionálási lépések csak egy - két elemet tesznek a pivot elem bal vagy jobb oldalára, így alig csökkentik a nagyobb résztömb méretét. Az első elem választása esetén egy monoton sorozat lassú, (<strong> O(n<sup>2</sup>) </strong>) futási időhöz vezet.</p>
                             </li>
                             <li>
                                 <h3 id="random">Véletlenszerű</h3>
@@ -201,12 +211,12 @@ Function partition(arr: Array, lo: Integer, hi: Integer, pivot: Integer):
                             <li>
                                 <h3 id="mo3">Medián</h3>
                                 <p>A leggyakrabban választott stratégia a <span lang="en">Median of three</span>, az algoritmus lényege, hogy válasszunk három elemet (tipikusan első egy random középen és utolsó) és rendezzük őket növekvő sorrendbe, és válasszuk a középső elemet pivotnak, ekkor a particionálásnál nem kell megvizsgálnunk az elso elemet, mert biztosan kisebb, mint a pivot, és az utolsó elemet sem, mert biztosan nagyobb, mint a pivot.</p>
-                                <p>Nem csak nehezebb ellene olyan sorozatott generálni amelyre az algoritmus lassú (random középső elem választásnál nem is lehetséges), de egyéb optimalizálási lépéseket is megenged a particionálásnál, viszont figyelni kell arra, hogy gyorsrendezésnek ekkor a \(|array| \lt 3 \) eseteket le kell kezelnie.</p>
+                                <p>Nem csak nehezebb ellene olyan sorozatott generálni amelyre az algoritmus lassú (<strong>random középső</strong> elem választásnál nem is lehetséges), de egyéb optimalizálási lépéseket is megenged a particionálásnál, viszont figyelni kell arra, hogy gyorsrendezésnek ekkor a \(|array| \lt 3 \) eseteket le kell kezelnie.</p>
                             </li>
                             <li>
                                 <h3 id="mom">Mediánok mediánja</h3>
-                                <code>n := Tömb mérete</code>
-                                <p>A <span lang="en">median of medians</span>ans</s> egy olyan algoritmus, amely nem használ véletlen kiválasztást, ezzel a determinisztikus algoritmussal olyan pivotot tudunk választani, ahol garantált hogy a gyorsrendezés O(n log n). Habár az algoritmus ötletes a gyakorlatban túl lassú és szinte minden esetben lemarad a Median of Three algoritmus mögött.</p>
+                                <p><i>n = Tömb mérete</i></p>
+                                <p>A <span lang="en">median of medians</span> egy olyan algoritmus, amely nem használ véletlen kiválasztást, ezzel a determinisztikus algoritmussal olyan pivotot tudunk választani, ahol <strong>garantált</strong> hogy a<strong> gyorsrendezés O(n log n)</strong>. Habár az algoritmus ötletes a gyakorlatban túl lassú és szinte minden esetben lemarad a <em><span lang="en">Median of Three</span></em> algoritmus mögött.</p>
                                 <p>Az algoritmus a következőképp zajlik: "tegyük" 5 elemenként egy csoportba a tömb elemeit, 5 elemből megmutatható, hogy 6 összehasonlítással meghatározható a középső elem, az így kapott mediánokra rekurzívan ismételjük az algoritmust, már csak egy elem marad, és ezt az elemet választjuk pivotnak</p>
                                 <p>Az így választott pivot a csoportok felének mediánjánál kisebb, és a csoportok felének mediánjánál nagyobb, ez a n / 10 darab csoport. Egy olyan csorportban, ahol a medián kisebb mint a pivot, ott van 3 a pivotnál kisebb elem(a medián és az annál kisebb két elem), így 3/10 * n darab a pivotnál kisebb, és hasonló gondolat lapján 3/10 * n darab a pivotnál nagyobb elem van. Azaz a választott pivot garantáltan &ge; 30% és &le; 30%, vagyis garantáltan a középső 40%-ban van.</p>
                                 <p>Ez az algoritmus lineáris, mert először 6n összehasonlíttást, majd ennek folyamatosan az ötöde, így az összehasonlítássok száma összesen</p>
@@ -219,13 +229,13 @@ Function partition(arr: Array, lo: Integer, hi: Integer, pivot: Integer):
                     <article id="complexity">
                         <h1>Hatékonyság</h1>
                         <p>A gyorsrendezés a gyakorlatban nagyon gyors, többek között azért, mert a már helyükön lévő elemeket nem mozgatja feleslegesen.</p>
-                        <p>legrosszabb esetben a ha a pivot választás rossz, akkor minden elem a pivot egyik oldalán lesz, így csökkentve a sorozat méretét 1 el. Egyesével n – 1 szer csökkenthető a sorozat mérete, és minden egyes csökkentés O(n) időt vesz igénybe a particionálás miatt, így legrosszabb esetben a futási idő négyzetes</p>
-                        <p>Általános esetben minden pivot választásnál a sorozat mediánját szeretnénk választani, valamerre a közepe felé, így log n egymásba ágyazott hívás után a részsorozat hossza 1 lesz. log n darab szint után, minden rétegen minden elemet particionálunk egyszer így a partícionálás összköltsége egy szinten n, és a teljes algoritmus költésége(optimális pivotválasztás esetén) O(n log n) </p>
+                        <p>legrosszabb esetben a ha a pivot választás rossz, akkor minden elem a pivot egyik oldalán lesz, így csökkentve a sorozat méretét 1 el. Egyesével n – 1 szer csökkenthető a sorozat mérete, és minden egyes csökkentés O(n) időt vesz igénybe a particionálás miatt, így <strong>legrosszabb esetben a futási idő négyzetes</strong></p>
+                        <p>Általános esetben minden pivot választásnál a sorozat mediánját szeretnénk választani, valamerre a közepe felé, így log n egymásba ágyazott hívás után a részsorozat hossza 1 lesz. log n darab szint után, minden rétegen minden elemet particionálunk egyszer így a partícionálás összköltsége egy szinten n, és a teljes algoritmus költésége(optimális pivotválasztás esetén) <strong>O(n log n)</strong> </p>
                     </article>
                     <article id="implementation">
                         <h1>Implementáció C++</h1>
+<pre>
 <code class="cpp">
-<pre id='vimCodeElement'>
 
 <span class="Type">inline</span> <span class="Type">void</span> swap(<span class="Type">int</span>&amp; a, <span class="Type">int</span>&amp; b){
     <span class="Type">int</span> tmp = a;
@@ -271,8 +281,8 @@ Function partition(arr: Array, lo: Integer, hi: Integer, pivot: Integer):
 <span class="Type">void</span> quicksort_all(<span class="Type">int</span> arr[], <span class="Type">int</span> size){
     quicksort(arr, <span class="Constant">0</span>, size - <span class="Constant">1</span>);
 }
-</pre>
 </code>                     
+</pre>
 
                     </article>
                 </div>
@@ -306,8 +316,8 @@ Function partition(arr: Array, lo: Integer, hi: Integer, pivot: Integer):
             <div class="col-12 col-md-3 mb-2">
               <h4>Project</h4>
               <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="https://github.com/Kristofy/introsort" class="nav-link p-0 text-muted"><i class="fa-brands fa-github"></i> Weboldal</a></li>
-                <li class="nav-item mb-2"><a href="https://github.com/Kristofy/Sorting-benchmark" class="nav-link p-0 text-muted"><i class="fa-brands fa-github"></i> Mérések</a></li>
+                <li class="nav-item mb-2"><a target="_blank" href="https://github.com/Kristofy/introsort" class="nav-link p-0 text-muted"><i class="fa-brands fa-github"></i> Weboldal</a></li>
+                <li class="nav-item mb-2"><a target="_blank" href="https://github.com/Kristofy/Sorting-benchmark" class="nav-link p-0 text-muted"><i class="fa-brands fa-github"></i> Mérések</a></li>
               </ul>
             </div>
         </div>

@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" media="screen" href="./src/css/custom_styles.css">
+    <link rel="stylesheet" media="screen" href="./src/css/custom_styles.css" title="normal">
+    <link rel="alternate stylesheet" media="screen" href="./src/css/big_custom_styles.css" title="nagybetus">
     <link rel="stylesheet" media="print" href="./src/css/print.css">
     <script defer src="./src/js/bootstrap.bundle.min.js"></script>
     <script defer src="./src/js/app.js"></script>
+    <script src="./src/js/styleswitcher.js"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <title>IntroSort</title>
 </head>
@@ -34,7 +36,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">IntroSort</a>
+                            <a class="nav-link active" aria-current="page" href="index.html">IntroSort</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="quicksort.html">QuickSort</a>
@@ -48,10 +50,18 @@
                         <li class="nav-item">
                             <a class="nav-link" href="about.html">Elérhetőségek</a>
                         </li>
+                        <li class="d-flex align-items-center">
+                            <a class="nav-item d-block mx-2" target="_blank" href="https://github.com/Kristofy/introsort">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <div class="d-block px-2 pe-auto">
+                                <i id="big-font" role="button" onclick="setActiveStyleSheet('nagybetus'); return false;" class="fa-solid fa-text-height"></i>
+                                <i id="normal-font" role="button" onclick="setActiveStyleSheet('normal'); return false;" class="fa-solid fa-text-height"></i>
+                            </div>
+                        </li>
                     </ul>
-                    <a target="_blank" href="https://github.com/Kristofy/introsort">
-                        <i class="fa-brands fa-github"></i>
-                    </a>
                 </div>
             </div>
         </nav>
@@ -59,10 +69,10 @@
 
     <main id="main" class="container-fluid">
         <div class="row">
-            <div class="col-12 col-xl-2">
+            <div class="col-12 col-xl-3">
                 <aside class="sticky-xl-top">
                     <nav id="table-of-content">
-                        <div class="bg-light my-3 p-2 pe-4 border d-inline-block w-auto">
+                        <div class="bg-light my-3 p-2 pe-4 border d-inline-block w-100 text-break">
                         <h1>Tartalom</h1>
                         <ul>
                             <li>
@@ -105,7 +115,7 @@
                     </nav>
                 </aside>
             </div>
-            <div class="col-12 col-xl-10">
+            <div class="col-12 col-xl-9">
                 <div class="me-4">
                     <article id="intro">
                         <h1>Előszó</h1>
@@ -364,7 +374,7 @@ Function introsort(arr: array, lo: integer, hi: integer, maxdepth: integer):None
                         </section>
                         <section id="conculsion">
                             <h2>Konklúzió</h2>
-                            <p>az összehasonlíttás sajnos nem elég általános, hiszen „kisebb” számokat rendezünk, melyek
+                            <p>Az összehasonlíttás sajnos nem elég általános, hiszen „kisebb” számokat rendezünk, melyek
                                 másolása és
                                 mozgatása triviális, így a mozgatások számából következő eltéréseket nem reflektálja
                                 megfelelően az
@@ -391,10 +401,11 @@ Function introsort(arr: array, lo: integer, hi: integer, maxdepth: integer):None
                         <section id="real-time">
                             <h2>„Valós időben”</h2>
                             <div class="ratio ratio-16x9">
-                                <video width="1280" height="720" controls>
+                                <video width="1280" height="720" controls poster="assets/video_poster.png">
                                     <source src="./assets/VisualizationAndComparisonOfSortingAlgorithms.mp4" type="video/mp4">
                                 </video>
                             </div>
+                            <a href="./video_description.html">A videó teljes leírása.</a>
                         </section>
                     </article>
                     <article id="implementation">
@@ -470,8 +481,8 @@ Function introsort(arr: array, lo: integer, hi: integer, maxdepth: integer):None
         <div class="col-12 col-md-3 mb-2">
           <h4>Project</h4>
           <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="https://github.com/Kristofy/introsort" class="nav-link p-0 text-muted"><i class="fa-brands fa-github"></i> Weboldal</a></li>
-            <li class="nav-item mb-2"><a href="https://github.com/Kristofy/Sorting-benchmark" class="nav-link p-0 text-muted"><i class="fa-brands fa-github"></i> Mérések</a></li>
+            <li class="nav-item mb-2"><a target="_blank" href="https://github.com/Kristofy/introsort" class="nav-link p-0 text-muted"><i class="fa-brands fa-github"></i> Weboldal</a></li>
+            <li class="nav-item mb-2"><a target="_blank" href="https://github.com/Kristofy/Sorting-benchmark" class="nav-link p-0 text-muted"><i class="fa-brands fa-github"></i> Mérések</a></li>
           </ul>
         </div>
         </div>

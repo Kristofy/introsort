@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" media="screen" href="./src/css/custom_styles.css">
+    <link rel="stylesheet" media="screen" href="./src/css/custom_styles.css" title="normal">
+    <link rel="alternate stylesheet" media="screen" href="./src/css/big_custom_styles.css" title="nagybetus">
     <link rel="stylesheet" media="print" href="./src/css/print.css">
     <script defer src="./src/js/bootstrap.bundle.min.js"></script>
     <script defer src="./src/js/app.js"></script>
+    <script src="./src/js/styleswitcher.js"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <title>Kupacrendezés - Introsort</title>
 </head>
@@ -48,10 +50,18 @@
                         <li class="nav-item">
                             <a class="nav-link" href="about.html">Elérhetőségek</a>
                         </li>
+                        <li class="d-flex align-items-center">
+                            <a class="nav-item d-block mx-2" target="_blank" href="https://github.com/Kristofy/introsort">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <div class="d-block px-2 pe-auto">
+                                <i id="big-font" role="button" onclick="setActiveStyleSheet('nagybetus'); return false;" class="fa-solid fa-text-height"></i>
+                                <i id="normal-font" role="button" onclick="setActiveStyleSheet('normal'); return false;" class="fa-solid fa-text-height"></i>
+                            </div>
+                        </li>
                     </ul>
-                    <a target="_blank" href="https://github.com/Kristofy/introsort">
-                        <i class="fa-brands fa-github"></i>
-                    </a>
                 </div>
             </div>
         </nav>
@@ -62,7 +72,7 @@
             <div class="col-12 col-xl-2">
                 <aside class="sticky-xl-top">
                     <nav id="table-of-content">
-                        <div class="bg-light my-3 p-2 pe-4 border d-inline-block w-auto">
+                        <div class="bg-light my-3 p-2 pe-4 border d-inline-block w-100 text-break">
                         <h1>Tartalom</h1>
                         <ul>
                             <li>
@@ -102,12 +112,12 @@
                 <div class="me-4">
                     <article id="intro">
                         <h1>Előszó</h1>
-                        <p>A kupacrendezés nagyon hasonló egy maximum kiválasztásos rendezéssel. De ebben az esetben a maximum kiválasztáshoz fenntartunk egy kupac struktúrát és annak segítségével keressük a maximumot.</p>
+                        <p>A kupacrendezés nagyon hasonló egy <strong>maximum kiválasztásos rendezéssel</strong>. De ebben az esetben a maximum kiválasztáshoz fenntartunk egy <em><strong>kupac struktúrát</strong></em> és annak segítségével keressük a maximumot.</p>
                     </article>
                     <article id="algo">
                         <h1>Algoritmus</h1>
                         <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Heapsort-example.gif" alt="A kupacrendezés animálva">
-                        <p>Kupac struktúra egy bináris fa egy plusz tulajdonsággal, a szülő elem mindig nagyobb, mint a gyerek elem, ennek figyelembe vételével építjük fel a kupacot, majd tartjuk fent. A bináris fa szerkezetet egy sorozattal modellezük, mert sokkal effektívebb mint egy fát elemenként felépíteni. A k elem bal oldali gyereke a k * 2 . elem a jobb oldali gyereke pedig a k * 2 + 1 . elem</p>
+                        <p>Kupac struktúra egy<em> bináris fa</em> egy plusz tulajdonsággal, a szülő elem mindig nagyobb, mint a gyerek elem, ennek figyelembe vételével építjük fel a kupacot, majd tartjuk fent. A bináris fa szerkezetet egy sorozattal modellezük, mert sokkal effektívebb mint egy fát elemenként felépíteni. A k elem bal oldali gyereke a k * 2. elem a jobb oldali gyereke pedig a k * 2 + 1. elem</p>
                         <p>A kupacból a legnagyobb elemet újra és újra kivesszük egy speciális művelettel és a kupac végére tesszük, majd a kupac mérete az egy áltávolított elem miatt csökken egyel, ezt ismételve hátulról rendezzük a sorozatot.</p>
                         <h2 id="heap">Kupac adatszerkezet</h2>
                         <p>Az adatszerkezet metódusai</p>
@@ -118,7 +128,7 @@
                             </li>
                             <li>
                                 <h2 id="make_heap">Kupac létrehozása</h2>
-                                <p>A kupac felépíttéséhez a heapify eljárást használjuk, viszont annak elő feltétele hogy csak egy elem (amire meghívjuk a heapify eljárást) lehet rossz helyen, ezért alulról felfelé minden elemre meghívjuk a heapify eljárást, a sorozatos modellezés alapján n/2 - 1 tő 0 ig</p>
+                                <p>A kupac felépíttéséhez a heapify eljárást használjuk, viszont annak elő feltétele hogy csak egy elem (amire meghívjuk a kupacol eljárást) lehet rossz helyen, ezért alulról felfelé minden elemre meghívjuk a heapify eljárást, a sorozatos modellezés alapján n/2 - 1 tő 0 ig</p>
                             </li>
                             <li>
                                 <h2 id="pop_heap">Elem kivétele</h2>
@@ -154,9 +164,9 @@ Function heapify(arr: Array, size: Integer, elem: Integer):
                     </article>
                     <article id="complexity">
                         <h1>Hatékonyság</h1>
-                        <p>A kupacrendezés habár a gyorsabb rendezések közé tartozik, azok között viszont lassú, főként azért, mert a kupac szerkezet fenntartása miatt sok plusz műveletet kell végeznünk.</p>
-                        <p>A kupacrendezés mindig n log n futási idejű hiszen a bemutatott kupac építés n szer ismétli a heapify eljárást, ami log n futási idejű, valamint a rendezés ismét n szer ismétli a heapify eljárást,</p>
-                        <p>A heapify eljárás log n futási idejű, hiszen minden elem után rekurzívan meghívja magát az elem 2 szeresével (vagy kétszeres + 1 el) így legkésőbb log2 n lépés után a kupac végére érünk.</p>
+                        <p>A kupacrendezés habár a gyorsabb rendezések közé tartozik, azok között viszont lassú, főként azért, mert a kupac szerkezet fenntartása miatt<strong> sok plusz műveletet</strong> kell végeznünk.</p>
+                        <p>A kupacrendezés <strong>mindig n log n</strong> futási idejű hiszen a bemutatott kupac építés n szer ismétli a heapify eljárást, ami log n futási idejű, valamint a rendezés ismét n szer ismétli a heapify eljárást,</p>
+                        <p>A kupacol eljárás <strong>log n</strong> futási idejű, hiszen minden elem után rekurzívan meghívja magát az elem 2 szeresével (vagy kétszeres + 1 el) így legkésőbb log n lépés után a kupac végére érünk.</p>
 
                     </article>
                     <article id="implementation">
@@ -233,8 +243,8 @@ Function heapify(arr: Array, size: Integer, elem: Integer):
         <div class="col-12 col-md-3 mb-2">
           <h4>Project</h4>
           <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="https://github.com/Kristofy/introsort" class="nav-link p-0 text-muted"><i class="fa-brands fa-github"></i> Weboldal</a></li>
-            <li class="nav-item mb-2"><a href="https://github.com/Kristofy/Sorting-benchmark" class="nav-link p-0 text-muted"><i class="fa-brands fa-github"></i> Mérések</a></li>
+            <li class="nav-item mb-2"><a target="_blank" href="https://github.com/Kristofy/introsort" class="nav-link p-0 text-muted"><i class="fa-brands fa-github"></i> Weboldal</a></li>
+            <li class="nav-item mb-2"><a target="_blank" href="https://github.com/Kristofy/Sorting-benchmark" class="nav-link p-0 text-muted"><i class="fa-brands fa-github"></i> Mérések</a></li>
           </ul>
         </div>
     </div>
